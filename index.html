@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Maneesha 💖</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="book">
+
+        <div class="page cover" id="p1">
+            <img src="images/cover.png">
+            <h1 class="title">🎂 Happy Birthday</h1>
+            <h2 class="name">Maneesha 💖</h2>
+            <p>Tap or swipe to open your birthday magazine ✨</p>
+        </div>
+
+        <div class="page" id="p2">
+            <img src="images/photo1.jpg">
+            <h3>The Smile That Started Everything 😊</h3>
+            <p>
+                I still remember how everything started…
+                We were just normal people in each other's life.
+
+                But slowly, you became someone
+                I talk to every single day 💬
+
+                Your smile has this magic ✨
+                it can fix my worst mood
+                and make everything feel okay again.
+
+                Honestly… life feels lighter
+                whenever you are around 💕
+            </p>
+        </div>
+
+        <div class="page" id="p3">
+            <img src="images/photo2.jpg">
+            <h3>More Than Just a Best Friend 💕</h3>
+            <p>
+                You are not just my best friend.
+
+
+                You are the person
+                who understands me without words.
+
+                You listen to my stupid jokes 😂
+                and my serious talks too.
+
+                Meeting you was honestly
+                one of the best things in my life 🌸
+            </p>
+        </div>
+
+        <div class="page" id="p4">
+            <img src="images/photo3.jpg">
+            <h3>A Little Secret 🤫</h3>
+            <p>
+
+                Sometimes I wonder
+                how someone can be this kind,
+                this fun, and this beautiful at the same time.
+
+                Your laugh is addictive 😄
+                your smile is dangerous 😌
+
+                and your vibe…
+                is just impossible to ignore 💖
+
+                If being around you is a habit,
+                then honestly…
+                I never want to break it.
+            </p>
+        </div>
+
+
+
+        <!-- PAGE 5 -->
+
+        <div class="page" id="p5">
+
+            <img src="photo4.jpg">
+
+            <h3>Our Memories ✨</h3>
+
+            <p>
+                I still can't forget that Dandiya night 😄
+
+                Our first outing at night…
+                and honestly, it didn’t feel like just a normal day.
+
+                It felt special ✨
+
+                We went with Padhu and Arun…
+                and I swear, half the time we were dancing
+                and the other half we were just laughing for no reason 😂
+
+                The music, the lights, the vibe…
+                everything was perfect.
+
+                But what made it unforgettable was YOU 💖
+
+                Also let’s be honest…
+                our dance steps were 50% dandiya
+                and 50% confusion 😭😂
+
+                But still…
+                that night became one of my favorite memories 🌙✨
+            </p>
+
+        </div> <!-- PAGE 6 -->
+
+        <div class="page" id="p6">
+
+            <img src="photo5.jpg">
+
+            <h3>The Person I Admire 🌟</h3>
+
+            <p>
+                You care about people
+                more than they even realize.
+
+                You have a pure heart ❤️
+
+                You spread positivity
+                without even trying.
+
+                And that is something
+                I truly admire 🌸
+
+                You are honestly
+                one of the most special people
+                in my life 🌸
+            </p>
+
+        </div>
+
+        <!-- FINAL -->
+
+        <div class="page" id="p7">
+
+            <h3>Happy Birthday Maneesha 🎂💖</h3>
+
+            <p>
+                Today is your day 🎉
+
+                And I just want to say thank you…
+
+                Thank you for being my best friend 🤝
+                Thank you for being part of my life
+
+                You deserve happiness, success,
+                and every beautiful thing in this world ✨
+
+                And I feel really lucky
+                that I got someone like you 💕
+
+                Happy Birthday once again 💖
+
+                – From someone
+                who is really lucky to have you 😊
+            </p>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let pages = document.querySelectorAll(".page");
+        let current = 0;
+
+        /* CLICK */
+
+        document.querySelector(".book").addEventListener("click", function (e) {
+
+            let width = this.offsetWidth;
+
+            if (e.offsetX > width / 2) {
+                nextPage();
+            } else {
+                prevPage();
+            }
+
+        });
+
+        /* SWIPE */
+
+        let startX = 0;
+
+        document.addEventListener("touchstart", e => {
+            startX = e.touches[0].clientX;
+        });
+
+        document.addEventListener("touchend", e => {
+            let endX = e.changedTouches[0].clientX;
+
+            if (startX - endX > 50) nextPage();
+            if (endX - startX > 50) prevPage();
+
+        });
+
+        /* PAGE TURN */
+
+        function nextPage() {
+
+            if (current == 0) {
+                startMagic();
+            }
+
+            if (current < pages.length) {
+                pages[current].classList.add("flipped");
+                current++;
+            }
+
+        }
+
+        function prevPage() {
+            if (current > 0) {
+                current--;
+                pages[current].classList.remove("flipped");
+            }
+        }
+
+        /* MAGIC EFFECT */
+
+        function startMagic() {
+
+            for (let i = 0; i < 18; i++) {
+
+                let b = document.createElement("div");
+                b.className = "butterfly";
+                b.style.left = Math.random() * 100 + "vw";
+                b.style.bottom = "-20px";
+
+                document.body.appendChild(b);
+
+                setTimeout(() => b.remove(), 8000);
+            }
+
+            for (let i = 0; i < 25; i++) {
+
+                let f = document.createElement("div");
+                f.className = "flower";
+                f.style.left = Math.random() * 100 + "vw";
+                f.style.bottom = "-20px";
+
+                document.body.appendChild(f);
+
+                setTimeout(() => f.remove(), 7000);
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
